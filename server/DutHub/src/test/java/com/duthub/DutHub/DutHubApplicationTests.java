@@ -1,10 +1,10 @@
-package com.duthub.DutGub;
+package com.duthub.DutHub;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DutGubApplicationTests {
+class DutHubApplicationTests {
 
 	@Test
 	void contextLoads() {

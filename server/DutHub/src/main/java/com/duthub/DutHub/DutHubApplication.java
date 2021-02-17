@@ -1,13 +1,13 @@
-package com.duthub.DutGub;
+package com.duthub.DutHub;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DutGubApplication {
+public class DutHubApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DutGubApplication.class, args);
+		SpringApplication.run(DutHubApplication.class, args);
 	}
 
 }
