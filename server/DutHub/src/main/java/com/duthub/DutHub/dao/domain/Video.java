@@ -32,8 +32,8 @@ public class Video {
     @OneToMany(mappedBy="video")
     private Set<Comment> comments;
 
-    private String video;
-    private String preview;
+    private String videoPath;
+    private String previewPath;
     private int views;
 
 
@@ -69,20 +69,20 @@ public class Video {
         this.creationDate = creationDate;
     }
 
-    public String getVideo() {
-        return video;
+    public String getVideoPath() {
+        return videoPath;
     }
 
-    public void setVideo(String video) {
-        this.video = video;
+    public void setVideoPath(String videoPath) {
+        this.videoPath = videoPath;
     }
 
-    public String getPreview() {
-        return preview;
+    public String getPreviewPath() {
+        return previewPath;
     }
 
-    public void setPreview(String preview) {
-        this.preview = preview;
+    public void setPreviewPath(String previewPath) {
+        this.previewPath = previewPath;
     }
 
     public Long getId() {
