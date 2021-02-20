@@ -1,4 +1,4 @@
-package com.duthub.DutHub.controllers;
+package com.duthub.DutHub.webapi.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
