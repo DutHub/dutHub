@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 public class VideoDto {
     public VideoDto(Video video){
         this.id = video.getId();
-        this.userId = video.getUserId();
+        this.userId = video.getUser().getId();
         this.userUsername = video.getUser().getUsername();
         this.title = video.getTitle();
         this.description = video.getDescription();

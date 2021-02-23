@@ -14,8 +14,6 @@ public class Video {
     @ManyToOne
     @JoinColumn(name="user_id", nullable=false)
     private User user;
-    @Transient
-    private String userId;
 
     private String title;
     private String description;
@@ -117,22 +115,15 @@ public class Video {
         this.comments = comments;
     }
 
-    public String getUserId() {
-        if (user != null)
-            return user.getId();
-        else
-            return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
     public int getViews() {
         return views;
     }
 
     public void setViews(int views) {
         this.views = views;
+    }
+
+    public void addView() {
+        this.views++;
     }
 }

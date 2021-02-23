@@ -13,14 +13,10 @@ public class Comment {
     @ManyToOne
     @JoinColumn(name="user_id", nullable=false)
     private User user;
-    @Transient
-    private String userId;
 
     @ManyToOne
     @JoinColumn(name="video_id", nullable=false)
     private Video video;
-    @Transient
-    private Long videoId;
 
     @Column(updatable = false)
     private LocalDateTime creationDate;
@@ -65,27 +61,5 @@ public class Comment {
 
     public void setText(String text) {
         this.text = text;
-    }
-
-    public String getUserId() {
-        if (user != null)
-            return user.getId();
-        else
-            return userId;
-    }
-
-    public Long getVideoId() {
-        if (video != null)
-            return video.getId();
-        else
-            return videoId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public void setVideoId(Long videoId) {
-        this.videoId = videoId;
     }
 }

@@ -5,6 +5,13 @@ import javax.persistence.*;
 @Entity
 @Table(name = "likes")
 public class Like {
+    public Like(){}
+
+    public Like(User user, Video video){
+        this.user = user;
+        this.video = video;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -12,14 +19,10 @@ public class Like {
     @ManyToOne
     @JoinColumn(name="user_id", nullable=false)
     private User user;
-    @Transient
-    private String userId;
 
     @ManyToOne
     @JoinColumn(name="video_id", nullable=false)
     private Video video;
-    @Transient
-    private Long videoId;
 
     public Long getId() {
         return id;
@@ -43,27 +46,5 @@ public class Like {
 
     public void setVideo(Video video) {
         this.video = video;
-    }
-
-    public String getUserId() {
-        if (user != null)
-            return user.getId();
-        else
-            return userId;
-    }
-
-    public Long getVideoId() {
-        if (video != null)
-            return video.getId();
-        else
-            return videoId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public void setVideoId(Long videoId) {
-        this.videoId = videoId;
     }
 }
