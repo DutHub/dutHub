@@ -3,7 +3,7 @@ package com.duthub.DutHub.bll.services;
 import com.duthub.DutHub.bll.domain.create.VideoNew;
 import com.duthub.DutHub.bll.domain.dto.VideoDto;
 import com.duthub.DutHub.bll.domain.update.VideoUpdate;
-import com.duthub.DutHub.bll.exceptions.ItemNotFound;
+import com.duthub.DutHub.bll.exceptions.ItemNotFoundException;
 import com.duthub.DutHub.bll.interfaces.IVideoService;
 import com.duthub.DutHub.dao.domain.User;
 import com.duthub.DutHub.dao.domain.Video;
@@ -24,8 +24,8 @@ public class VideoService implements IVideoService {
         return repository.findAll().stream().map(VideoDto::new).collect(Collectors.toList());
     }
 
-    public VideoDto findById(Long id) throws ItemNotFound {
-        return new VideoDto(repository.findById(id).orElseThrow(ItemNotFound::new));
+    public VideoDto findById(Long id) throws ItemNotFoundException {
+        return new VideoDto(repository.findById(id).orElseThrow(ItemNotFoundException::new));
     }
 
     public List<VideoDto> findMostPopular(int amount) {
@@ -34,8 +34,8 @@ public class VideoService implements IVideoService {
         return result.subList(0, amount).stream().map(VideoDto::new).collect(Collectors.toList());
     }
 
-    public VideoDto create(VideoNew video) throws ItemNotFound {
-        User user = userRepository.findById(video.getUserId()).orElseThrow(ItemNotFound::new);
+    public VideoDto create(VideoNew video) throws ItemNotFoundException {
+        User user = userRepository.findById(video.getUserId()).orElseThrow(ItemNotFoundException::new);
         Video videoDb = new Video();
 
         videoDb.setUser(user);
@@ -49,8 +49,8 @@ public class VideoService implements IVideoService {
         return new VideoDto(repository.save(videoDb));
     }
 
-    public VideoDto update(Long id, VideoUpdate video) throws ItemNotFound {
-        Video videoDb = repository.findById(id).orElseThrow(ItemNotFound::new);
+    public VideoDto update(Long id, VideoUpdate video) throws ItemNotFoundException {
+        Video videoDb = repository.findById(id).orElseThrow(ItemNotFoundException::new);
 
         videoDb.setTitle(video.getTitle());
         videoDb.setDescription(video.getDescription());
@@ -58,9 +58,9 @@ public class VideoService implements IVideoService {
         return new VideoDto(repository.save(videoDb));
     }
 
-    public void remove(Long id) throws ItemNotFound {
+    public void remove(Long id) throws ItemNotFoundException {
         if (repository.existsById(id))
-            throw new ItemNotFound();
+            throw new ItemNotFoundException();
         repository.deleteById(id);
     }
 }
