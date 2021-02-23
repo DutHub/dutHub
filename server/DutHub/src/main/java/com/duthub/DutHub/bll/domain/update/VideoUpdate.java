@@ -1,6 +1,7 @@
 package com.duthub.DutHub.bll.domain.update;
 
 public class VideoUpdate {
+    private Long id;
     private String title;
     private String description;
     private String previewPath;
@@ -27,5 +28,13 @@ public class VideoUpdate {
 
     public void setPreviewPath(String previewPath) {
         this.previewPath = previewPath;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

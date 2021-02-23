@@ -49,8 +49,8 @@ public class VideoService implements IVideoService {
         return new VideoDto(repository.save(videoDb));
     }
 
-    public VideoDto update(Long id, VideoUpdate video) throws ItemNotFoundException {
-        Video videoDb = repository.findById(id).orElseThrow(ItemNotFoundException::new);
+    public VideoDto update(VideoUpdate video) throws ItemNotFoundException {
+        Video videoDb = repository.findById(video.getId()).orElseThrow(ItemNotFoundException::new);
 
         videoDb.setTitle(video.getTitle());
         videoDb.setDescription(video.getDescription());

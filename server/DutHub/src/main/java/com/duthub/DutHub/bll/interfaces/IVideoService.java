@@ -12,6 +12,6 @@ public interface IVideoService {
     VideoDto findById(Long id) throws ItemNotFoundException;
     List<VideoDto> findMostPopular(int amount);
     VideoDto create(VideoNew video) throws ItemNotFoundException;
-    VideoDto update(Long id, VideoUpdate video) throws ItemNotFoundException;
+    VideoDto update(VideoUpdate video) throws ItemNotFoundException;
     void remove(Long id) throws ItemNotFoundException;
 }
