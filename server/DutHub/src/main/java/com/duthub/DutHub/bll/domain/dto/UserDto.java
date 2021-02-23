@@ -13,6 +13,7 @@ public class UserDto {
         this.email = user.getEmail();
         this.locale = user.getLocale();
         this.lastVisit = user.getLastVisit();
+        this.videoAmount = user.getVideos().size();
     }
 
     private String id;
@@ -22,6 +23,7 @@ public class UserDto {
     private String locale;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm dd-MM-yyyy")
     private LocalDateTime lastVisit;
+    private int videoAmount;
 
     public String getId() {
         return id;
@@ -69,5 +71,13 @@ public class UserDto {
 
     public void setLastVisit(LocalDateTime lastVisit) {
         this.lastVisit = lastVisit;
+    }
+
+    public int getVideoAmount() {
+        return videoAmount;
+    }
+
+    public void setVideoAmount(int videoAmount) {
+        this.videoAmount = videoAmount;
     }
 }

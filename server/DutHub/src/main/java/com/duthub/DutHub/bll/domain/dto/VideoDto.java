@@ -18,6 +18,7 @@ public class VideoDto {
         this.videoPath = video.getVideoPath();
         this.previewPath = video.getPreviewPath();
         this.views = video.getViews();
+        this.comments = video.getComments().size();
     }
 
     private Long id;
@@ -32,6 +33,7 @@ public class VideoDto {
     private String videoPath;
     private String previewPath;
     private int views;
+    private int comments;
 
     public String getTitle() {
         return title;
@@ -119,5 +121,13 @@ public class VideoDto {
 
     public void setUserUsername(String userUsername) {
         this.userUsername = userUsername;
+    }
+
+    public int getComments() {
+        return comments;
+    }
+
+    public void setComments(int comments) {
+        this.comments = comments;
     }
 }
