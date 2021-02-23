@@ -21,6 +21,8 @@ public class Comment {
     @Column(updatable = false)
     private LocalDateTime creationDate;
 
+    private LocalDateTime lastUpdate;
+
     private String text;
 
     public Long getId() {
@@ -61,5 +63,13 @@ public class Comment {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public LocalDateTime getLastUpdate() {
+        return lastUpdate;
+    }
+
+    public void setLastUpdate(LocalDateTime lastUpdate) {
+        this.lastUpdate = lastUpdate;
     }
 }
